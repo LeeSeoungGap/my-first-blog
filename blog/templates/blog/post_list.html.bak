@@ -1,4 +1,46 @@
 <html>
-    <p>Hi there!</p>
-    <p>It works!</p>
+    <head>
+        <title>파이썬</title>
+		<style>
+			#map_canvas { height : 100%; }
+		</style>
+		<script type = "text/javascript" src = "http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+		<script>
+			var latitude, longitude;
+			navigator.geolocation.getCurrentPosition(function(pos) {
+				latitude = pos.coords.latitude;
+				longitude = pos.coords.longitude;
+			});
+
+
+			function initialize(){
+
+			var latlng = new google.maps.LatLng(latitude, longitude);
+			var myOptions = {
+			zoom: 14,
+			center:latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+
+			};
+
+			var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+			}
+		</script>
+    </head>
+    <body onload="initialize()">
+        <div>
+            <h1>민.석.아? </h1>
+        </div>
+		<div id="map_canvas" style="width:540px; height:300px"></div>
+        <div>
+            <iframe width="540" height="260" src="https://www.youtube.com/embed/YxmTnbD4EHw" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div>
+            <p>published: 14.06.2014, 12:14</p>
+            <h2><a href="">My second post</a></h2>
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
+        </div>
+    </body>
 </html>
